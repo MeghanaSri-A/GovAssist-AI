@@ -12,10 +12,15 @@ dist/
 .env
 
 # DB & storage
+*.db
 database/*.db
+backend/database/*.db
 qdrant_storage/
 backend/app/uploads/*
 !backend/app/uploads/.gitkeep
 
-# OS
+# OS & IDE
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/

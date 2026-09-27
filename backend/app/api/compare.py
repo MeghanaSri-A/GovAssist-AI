@@ -29,6 +29,6 @@ Description: {scheme_a.short_description}
 Scheme B: {scheme_b.scheme_name}
 Description: {scheme_b.short_description}
 """
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-3.1-flash-lite")
     response = model.generate_content(prompt)
     return CompareResponse(comparison=response.text)

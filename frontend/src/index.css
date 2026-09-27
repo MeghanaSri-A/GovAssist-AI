@@ -1,66 +1,305 @@
+/* ==========================================================================
+   GovAssist AI - Modern Design System & Global Styles
+   ========================================================================== */
+
 :root {
+  /* Brand Primary - Deep Regal Navy & Indigo */
+  --primary-50: #EEF2FF;
+  --primary-100: #E0E7FF;
+  --primary-200: #C7D2FE;
+  --primary-500: #4F46E5;
+  --primary-600: #2541B2;
+  --primary-700: #1E3A8A;
+  --primary-800: #1E293B;
+  --primary-900: #0F172A;
+
+  /* Accent Saffron / Amber */
+  --accent-50: #FFFBEB;
+  --accent-100: #FEF3C7;
+  --accent-500: #F59E0B;
+  --accent-600: #D97706;
+  --accent-gradient: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+
+  /* Status Colors */
+  --success-50: #ECFDF5;
+  --success-100: #D1FAE5;
+  --success-500: #10B981;
+  --success-600: #059669;
+  --error-50: #FEF2F2;
+  --error-500: #EF4444;
+  --error-600: #DC2626;
+
+  /* Surfaces & Backgrounds */
+  --bg-page: #F8FAFC;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFFFFF;
+  --bg-muted: #F1F5F9;
+  --bg-subtle: #F8FAFF;
+
+  /* Typography Colors */
+  --text-main: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --text-light: #94A3B8;
+
+  /* Borders & Dividers */
+  --border-color: #E2E8F0;
+  --border-light: #F1F5F9;
+  --border-focus: #4F46E5;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 8px -2px rgba(15, 23, 42, 0.06), 0 1px 4px -1px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 30px -4px rgba(15, 23, 42, 0.12), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+  --shadow-glow: 0 0 25px rgba(37, 65, 178, 0.15);
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-pill: 9999px;
+
+  /* Backward Compatibility */
   --color-primary: #1E3A8A;
   --color-secondary: #FFFFFF;
   --color-accent: #F59E0B;
   --color-success: #10B981;
-  --color-text: #1F2937;
-  --color-muted: #6B7280;
-  --color-border: #E5E7EB;
+  --color-text: #0F172A;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
   --radius: 14px;
-  --shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --shadow: var(--shadow-sm);
 }
 
+/* Base Reset & Typography */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
-  color: var(--color-text);
-  background: #F8FAFC;
+  color: var(--text-body);
+  background-color: var(--bg-page);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.15s ease;
 }
 
-.card {
-  background: var(--color-secondary);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  border: 1px solid var(--color-border);
-  padding: 1.25rem;
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  width: 100%;
 }
 
+/* Buttons */
 .btn-primary {
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 0.6rem 1.2rem;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #2541B2 0%, #1E3A8A 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1.4rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 600;
-  transition: opacity 0.15s ease;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(37, 65, 178, 0.25);
+  text-decoration: none;
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 65, 178, 0.35);
+  background: linear-gradient(135deg, #1E3A8A 0%, #172554 100%);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #FFFFFF;
+  color: var(--primary-700);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1.3rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-xs);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--bg-muted);
+  border-color: #CBD5E1;
+  transform: translateY(-1px);
 }
 
 .btn-accent {
-  background: var(--color-accent);
-  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--accent-gradient);
+  color: #FFFFFF;
   border: none;
-  border-radius: 10px;
-  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  padding: 0.65rem 1.3rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
   cursor: pointer;
-  font-weight: 600;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  text-decoration: none;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+}
+
+.btn-sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Cards & Panels */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.card-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: #CBD5E1;
+}
+
+/* Category Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge-housing { background: #FFF7ED; color: #C2410C; border: 1px solid #FFEDD5; }
+.badge-education { background: #EEF2FF; color: #4338CA; border: 1px solid #E0E7FF; }
+.badge-agriculture { background: #ECFDF5; color: #047857; border: 1px solid #D1FAE5; }
+.badge-employment { background: #F5F3FF; color: #6D28D9; border: 1px solid #EDE9FE; }
+.badge-startup { background: #FDF2F8; color: #BE185D; border: 1px solid #FCE7F3; }
+.badge-healthcare { background: #FEF2F2; color: #B91C1C; border: 1px solid #FEE2E2; }
+.badge-success { background: #ECFDF5; color: #065F46; border: 1px solid #A7F3D0; }
+.badge-all { background: #F1F5F9; color: #334155; border: 1px solid #E2E8F0; }
+
+/* Form Controls */
+.input-field, .select-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: #FFFFFF;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-xs);
+}
+
+.input-field:focus, .select-field:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.15); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  display: inline-block;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }

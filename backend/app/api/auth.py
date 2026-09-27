@@ -22,5 +22,5 @@ def login(payload: UserLogin, db: Session = Depends(get_db)):
     user = crud.get_user_by_email(db, payload.email)
     if not user or not verify_password(payload.password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid email or password")
-    token = create_access_token({"sub": str(user.id), "email": user.email})
+    token = create_access_token({"sub": str(user.id), "email": user.email, "is_admin": user.is_admin})
     return Token(access_token=token)

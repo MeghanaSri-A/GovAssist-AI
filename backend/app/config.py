@@ -26,14 +26,16 @@ class Settings(BaseSettings):
     OLLAMA_HOST: str = "http://localhost:11434"
 
     # Embeddings
-    EMBEDDING_MODEL: str = "models/text-embedding-004"  # Gemini embedding model
+    EMBEDDING_MODEL: str = "models/gemini-embedding-001"  # Gemini embedding model
     EMBEDDING_DIM: int = 768
 
     # Uploads
     UPLOAD_DIR: str = "app/uploads"
+    QDRANT_STORAGE_PATH: str = "./database/qdrant_storage"
 
     class Config:
         env_file = ".env"
+        extra = "ignore"
 
 
 settings = Settings()

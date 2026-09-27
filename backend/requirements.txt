@@ -12,4 +12,3 @@ qdrant-client==1.9.1
 google-generativeai==0.7.1
 ollama==0.2.1
 python-dotenv==1.0.1
-tiktoken==0.7.0

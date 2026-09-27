@@ -5,7 +5,15 @@ import uuid
 from app.config import settings
 from app.rag.embeddings import embed_text, embed_batch
 
-client = QdrantClient(host=settings.QDRANT_HOST, port=settings.QDRANT_PORT)
+def _init_qdrant_client():
+    try:
+        c = QdrantClient(host=settings.QDRANT_HOST, port=settings.QDRANT_PORT, timeout=1.0)
+        c.get_collections()
+        return c
+    except Exception:
+        return QdrantClient(path=settings.QDRANT_STORAGE_PATH)
+
+client = _init_qdrant_client()
 
 
 def ensure_collection():
@@ -42,7 +50,14 @@ def index_chunks(chunks: list[dict], pdf_name: str):
     return len(points)
 
 
-def search_chunks(query: str, top_k: int = 5, pdf_name: str = None) -> list[dict]:
+def search_chunks(query: str, top_k: int = 5, pdf_name: str = None, score_threshold: float = 0.5) -> list[dict]:
+    """
+    score_threshold filters out weakly-related chunks so only genuinely relevant
+    matches get returned/cited, instead of always forcing exactly top_k results.
+    Cosine similarity ranges 0-1; 0.5 is a reasonable starting cutoff -- raise it
+    (e.g. 0.65-0.7) if still-irrelevant chunks slip through, or lower it if too
+    few results come back for valid questions.
+    """
     ensure_collection()
     query_vector = embed_text(query, task_type="retrieval_query")
 
@@ -55,6 +70,7 @@ def search_chunks(query: str, top_k: int = 5, pdf_name: str = None) -> list[dict
         query_vector=query_vector,
         limit=top_k,
         query_filter=query_filter,
+        score_threshold=score_threshold,
     )
     return [
         {
