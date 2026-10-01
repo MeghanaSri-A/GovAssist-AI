@@ -31,17 +31,17 @@ GovAssist AI reads those PDFs for you, and answers in plain English — with exa
 
 ## 📸 Screenshots
 
+### Register
+![Register](Register.jpeg)
+
+### Login
+![Login](Login.jpeg)
+
 ### Home
 ![Home](Home.jpeg)
 
-### AI Scheme Assistant
-![AI Scheme Assistant](Ai%20Scheme%20Assistant.jpeg)
-
-### AI Chat Analysis
-![AI Chat Analysis](AI%20chat%20Analysis.jpeg)
-
-### Compare Schemes
-![Compare Schemes](Comparision.jpeg)
+### Working Demo
+![Working](Working.jpeg)
 
 ### Schemes Explorer
 ![Schemes](Schemes.jpeg)
@@ -52,17 +52,17 @@ GovAssist AI reads those PDFs for you, and answers in plain English — with exa
 ### AI Assistant
 ![AI Assistant](Ai%20Assistant.jpeg)
 
+### AI Scheme Assistant
+![AI Scheme Assistant](Ai%20Scheme%20Assistant.jpeg)
+
+### AI Chat Analysis
+![AI Chat Analysis](AI%20chat%20Analysis.jpeg)
+
+### Compare Schemes
+![Compare Schemes](Comparision.jpeg)
+
 ### Admin — Uploading PDFs
 ![Uploading PDFs](Uploading%20PDFs.jpeg)
-
-### Working Demo
-![Working](Working.jpeg)
-
-### Login
-![Login](Login.jpeg)
-
-### Register
-![Register](Register.jpeg)
 
 ---
 
