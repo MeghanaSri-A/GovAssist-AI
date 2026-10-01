@@ -182,11 +182,6 @@ GovAssist-AI/
 | ✅ | Compare Schemes |
 | ✅ | Admin PDF Ingestion Console |
 | ✅ | Qdrant Cloud Vector Search |
-| 🚧 | Multi-language support (Hindi, regional languages) |
-| 🚧 | SMS / WhatsApp-based eligibility checks |
-| 🔜 | State-specific scheme coverage expansion |
-| 🔜 | Direct application portal deep-links |
-| 💡 | Voice-based assistant |
 
 ---
 
